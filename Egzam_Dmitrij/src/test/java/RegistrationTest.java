@@ -8,9 +8,9 @@ public class RegistrationTest extends BaseTest{
     RegistrationPage registrationPage;
     LoginPage loginPage;
 
-    String username = "user4";
+    String username = "user7";
     String password = "Password123";
-    String email = "user4@email.com";
+    String email = "user7@email.com";
 
     String usernameExist = "user";
     String passwordExist = "Password123";
@@ -21,9 +21,7 @@ public class RegistrationTest extends BaseTest{
         loginPage = new LoginPage(driver);
         registrationPage = new RegistrationPage(driver);
         loginPage.clickOnRegistrationButton();
-        Thread.sleep(3000);
         registrationPage.registerUser(username, password, email);
-        Thread.sleep(3000);
         assertThat(driver.getCurrentUrl())
                 .contains("login");
     }
@@ -32,7 +30,6 @@ public class RegistrationTest extends BaseTest{
         loginPage = new LoginPage(driver);
         registrationPage = new RegistrationPage(driver);
         loginPage.clickOnRegistrationButton();
-        Thread.sleep(3000);
         registrationPage.registerUser(usernameExist, passwordExist, emailExist);
         String errMessage = registrationPage.getErrorMessage();
         assertThat(errMessage)
